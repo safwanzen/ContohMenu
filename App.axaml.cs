@@ -8,7 +8,8 @@ namespace ContohMenu
 {
     public partial class App : Application
     {
-        public static MainWindowViewModel MainVM { get; set; }
+        private static MainWindowViewModel MainVM;
+
         public static int Counter = 0;
 
         public override void Initialize()
@@ -27,6 +28,11 @@ namespace ContohMenu
             }
 
             base.OnFrameworkInitializationCompleted();
+        }
+
+        public static void ChangeMenu(ViewModelBase vm)
+        {
+            MainVM.CurrentMenu = vm;
         }
     }
 }

@@ -6,7 +6,8 @@
              x:Class="ContohMenu.Views.Menu.SettingsView">
 
 	<DockPanel LastChildFill="True">
-		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}" FontWeight="Bold"/>
+		<TextBlock DockPanel.Dock="Top">SETTINGS</TextBlock>
+		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}"/>
 		<TextBlock/>
 	</DockPanel>
 	

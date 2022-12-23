@@ -32,7 +32,7 @@ namespace ContohMenu.ViewModels.Menu
             Console.WriteLine("Enter button MainMenuViewModel pressed {0}", selectionIndex);
             if (selectionIndex == 0)
             {
-                App.MainVM.CurrentMenu = new MainMenuViewModel();
+                App.ChangeMenu(new MainMenuViewModel());
             }
         }
     }

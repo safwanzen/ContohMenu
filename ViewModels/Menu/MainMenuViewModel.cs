@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace ContohMenu.ViewModels.Menu
 {
@@ -19,11 +20,13 @@ namespace ContohMenu.ViewModels.Menu
 
         public override void Next()
         {
+            base.Next();
             Console.WriteLine("Next button MainMenuViewModel pressed. SelectionIndex -> {0}", selectionIndex);
         }
 
         public override void Prev()
         {
+            base.Prev();
             Console.WriteLine("Prev button MainMenuViewModel pressed. SelectionIndex -> {0}", selectionIndex);
         }
 
@@ -33,7 +36,7 @@ namespace ContohMenu.ViewModels.Menu
             Console.WriteLine("Enter button MainMenuViewModel pressed. SelectionIndex -> {0}", selectionIndex);
             if (selectionIndex == 0)
             {
-                App.MainVM.CurrentMenu = new SettingsViewModel();
+                App.ChangeMenu(new SettingsViewModel());
             }
             else if (selectionIndex == 1)
             {

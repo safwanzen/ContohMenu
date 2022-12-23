@@ -6,8 +6,9 @@
              x:Class="ContohMenu.Views.Menu.MainMenuView">
 	
 	<DockPanel LastChildFill="True">
-		<TextBlock DockPanel.Dock="Top" Text="{Binding Number}" FontWeight="Bold"/>
-		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}" FontWeight="Bold"/>
+		<TextBlock DockPanel.Dock="Top">MAIN MENU</TextBlock>
+		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}"/>
+		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Number}"/>
 		<TextBlock/>
 	</DockPanel>
 	
