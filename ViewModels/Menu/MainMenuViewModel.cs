@@ -14,7 +14,7 @@ namespace ContohMenu.ViewModels.Menu
     {
         public MainMenuViewModel()
         {
-            options = new string[] { "Settings", "ADD", "SUBTRACT" };
+            options = new string[] { "Settings", "Time" };
             Update();
         }
 
@@ -37,24 +37,10 @@ namespace ContohMenu.ViewModels.Menu
             if (selectionIndex == 0)
             {
                 App.ChangeMenu(new SettingsViewModel());
-            }
-            else if (selectionIndex == 1)
-            {
-                App.Counter++;
-            }
-            else if (selectionIndex == 2)
-            {
-                App.Counter--;
-            }
+            } 
+            else App.ChangeMenu(new TimeViewModel());
+
             Update();
         }
-
-        protected override void Update()
-        {
-            base.Update();
-            Number = App.Counter.ToString();
-        }
-
-        [Reactive] public string Number { get; private set; }
     }
 }

@@ -3,12 +3,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ContohMenu.Views.Menu.SettingsView">
+             x:Class="ContohMenu.Views.Menu.TimeView">
 
 	<DockPanel LastChildFill="True">
-		<TextBlock DockPanel.Dock="Top">SETTINGS</TextBlock>
+		<TextBlock DockPanel.Dock="Top">Time</TextBlock>
 		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}"/>
-		<TextBlock Text="{Binding Number}" FontSize="40" VerticalAlignment="Center"/>
+		<TextBlock VerticalAlignment="Center" Text="{Binding Time}" FontSize="40"/>
 	</DockPanel>
-	
+
 </UserControl>

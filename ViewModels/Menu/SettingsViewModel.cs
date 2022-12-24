@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReactiveUI.Fody.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,20 +11,8 @@ namespace ContohMenu.ViewModels.Menu
     {
         public SettingsViewModel()
         {
-            options = new string[] { "Back", "Set" };
+            options = new string[] { "Back", "ADD", "SUBTRACT" };
             Update();
-        }
-
-        public override void Next()
-        {
-            base.Next();
-            Console.WriteLine("Next button MainMenuViewModel pressed {0}", selectionIndex);
-        }
-
-        public override void Prev()
-        {
-            base.Prev();
-            Console.WriteLine("Prev button MainMenuViewModel pressed {0}", selectionIndex);
         }
 
         public override void Enter()
@@ -34,6 +23,24 @@ namespace ContohMenu.ViewModels.Menu
             {
                 App.ChangeMenu(new MainMenuViewModel());
             }
+            else if (selectionIndex == 1)
+            {
+                App.Counter++;
+            }
+            else if (selectionIndex == 2)
+            {
+                App.Counter--;
+            }
+
+            Update();
         }
+
+        protected override void Update()
+        {
+            base.Update();
+            Number = App.Counter.ToString();
+        }
+
+        [Reactive] public string Number { get; private set; }
     }
 }
