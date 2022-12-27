@@ -15,19 +15,8 @@ namespace ContohMenu.ViewModels.Menu
         public MainMenuViewModel()
         {
             options = new string[] { "Settings", "Time" };
+            Init();
             Update();
-        }
-
-        public override void Next()
-        {
-            base.Next();
-            Console.WriteLine("Next button MainMenuViewModel pressed. SelectionIndex -> {0}", selectionIndex);
-        }
-
-        public override void Prev()
-        {
-            base.Prev();
-            Console.WriteLine("Prev button MainMenuViewModel pressed. SelectionIndex -> {0}", selectionIndex);
         }
 
         public override void Enter()

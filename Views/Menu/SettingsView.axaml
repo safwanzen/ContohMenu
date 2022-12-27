@@ -7,7 +7,12 @@
 
 	<DockPanel LastChildFill="True">
 		<TextBlock DockPanel.Dock="Top">SETTINGS</TextBlock>
-		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}"/>
+		<UniformGrid Columns="3" DockPanel.Dock="Bottom">
+			<TextBlock Text="{Binding OptionList[0]}"/>
+			<TextBlock Text="{Binding OptionList[1]}"/>
+			<TextBlock Text="{Binding OptionList[2]}"/>
+		</UniformGrid>
+		<!--<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}"/>-->
 		<TextBlock Text="{Binding Number}" FontSize="40" VerticalAlignment="Center"/>
 	</DockPanel>
 	

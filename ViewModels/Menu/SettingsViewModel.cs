@@ -12,13 +12,14 @@ namespace ContohMenu.ViewModels.Menu
         public SettingsViewModel()
         {
             options = new string[] { "Back", "ADD", "SUBTRACT" };
+            Init();
             Update();
         }
 
         public override void Enter()
         {
             base.Enter();
-            Console.WriteLine("Enter button MainMenuViewModel pressed {0}", selectionIndex);
+            Console.WriteLine("Enter button SettigsViewModel pressed {0}", selectionIndex);
             if (selectionIndex == 0)
             {
                 App.ChangeMenu(new MainMenuViewModel());

@@ -7,8 +7,10 @@
 	
 	<DockPanel LastChildFill="True">
 		<TextBlock DockPanel.Dock="Top">MAIN MENU</TextBlock>
-		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Options}"/>
-		<TextBlock DockPanel.Dock="Bottom" Text="{Binding Number}"/>
+		<Grid ColumnDefinitions="* * *" DockPanel.Dock="Bottom">
+			<TextBlock Grid.Column="0" Text="{Binding OptionList[0]}"/>
+			<TextBlock Grid.Column="2" Text="{Binding OptionList[1]}"/>
+		</Grid>
 		<TextBlock/>
 	</DockPanel>
 	

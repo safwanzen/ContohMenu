@@ -2,7 +2,9 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing.Text;
+using System.Linq;
 using System.Text;
 
 namespace ContohMenu.ViewModels
@@ -11,6 +13,12 @@ namespace ContohMenu.ViewModels
     {
         protected int selectionIndex = 0;
         protected string[] options;
+
+        virtual protected void Init()
+        {
+            if (options != null)
+                OptionList = new ObservableCollection<string>(options);
+        }
 
         virtual public void Next() 
         {
@@ -21,7 +29,7 @@ namespace ContohMenu.ViewModels
                     selectionIndex = 0;
                 Update();
             }
-            Console.WriteLine("Next button pressed"); 
+            Console.WriteLine("base Next button pressed"); 
         }
 
         virtual public void Prev()
@@ -33,12 +41,12 @@ namespace ContohMenu.ViewModels
                     selectionIndex = options.Length - 1;
                 Update();
             }
-            Console.WriteLine("Prev button pressed");
+            Console.WriteLine("base Prev button pressed");
         }
 
         virtual public void Enter()
         {
-            Console.WriteLine("Enter button pressed");
+            Console.WriteLine("base Enter button pressed");
         }
         
         // for updating string being shown only
@@ -61,8 +69,19 @@ namespace ContohMenu.ViewModels
                 else
                     Options += " " + str;
             }
+
+            for (int i = 0; i < OptionList.Count; i++)
+            {
+                if (i == selectionIndex)
+                {
+                    OptionList[i] = ">" + options[i] + "<";
+                }
+                else OptionList[i] = options[i];
+            }
+
         }
 
         [Reactive] public string Options { get; protected set; } = "";
+        [Reactive] public ObservableCollection<string> OptionList { get; protected set; } = new();
     }
 }
