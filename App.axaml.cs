@@ -4,6 +4,7 @@ using Avalonia.Markup.Xaml;
 using ContohMenu.ViewModels;
 using ContohMenu.Views;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using System;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
@@ -23,6 +24,11 @@ namespace ContohMenu
 
             TimerTick = Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(1)).Publish();
             TimerTick.Connect();
+
+            UtcTime = Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(1))
+                .Select(_ => DateTime.UtcNow.ToLongTimeString())
+                .Publish();
+            UtcTime.Connect();
         }
 
         public override void OnFrameworkInitializationCompleted()
@@ -42,5 +48,7 @@ namespace ContohMenu
         {
             MainVM.CurrentMenu = vm;
         }
+
+        public static IConnectableObservable<string> UtcTime { get; set; }
     }
 }

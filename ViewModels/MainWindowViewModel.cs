@@ -14,15 +14,17 @@ namespace ContohMenu.ViewModels
         {
             CurrentMenu = new MainMenuViewModel();
 
-            App.TimerTick
-                .ObserveOn(RxApp.MainThreadScheduler)
-                .Subscribe(time =>
-                {
-                    Time = DateTime.UtcNow.ToLongTimeString();
-                });
+            //App.TimerTick
+            //    .ObserveOn(RxApp.MainThreadScheduler)
+            //    .Subscribe(time =>
+            //    {
+            //        Time = DateTime.UtcNow.ToLongTimeString();
+            //    });
+
+            App.UtcTime.ToPropertyEx(this, x => x.Time);
         }
 
-        [Reactive] public string Time { get; private set; }
+        [ObservableAsProperty] public string Time { get; private set; }
         [Reactive] public ViewModelBase CurrentMenu { get; set; }
     }
 }

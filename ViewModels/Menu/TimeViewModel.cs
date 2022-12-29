@@ -18,14 +18,17 @@ namespace ContohMenu.ViewModels.Menu
             options = new string[] { "Back" };
             Update();
 
-            Time = DateTime.UtcNow.ToLongTimeString();
+            //Time = DateTime.UtcNow.ToLongTimeString();
 
-            disposable = App.TimerTick
-                .ObserveOn(RxApp.MainThreadScheduler)
-                .Subscribe(time =>
-                {
-                    Time = DateTime.UtcNow.ToLongTimeString();
-                });
+            //disposable = App.TimerTick
+            //    .ObserveOn(RxApp.MainThreadScheduler)
+            //    .Subscribe(time =>
+            //    {
+            //        Time = DateTime.UtcNow.ToLongTimeString();
+            //    });
+
+            disposable = App.UtcTime
+                .ToPropertyEx(this, x => x.Time, initialValue: DateTime.UtcNow.ToLongTimeString());
         }
 
         public override void Enter()
@@ -39,6 +42,6 @@ namespace ContohMenu.ViewModels.Menu
             disposable?.Dispose();
         }
 
-        [Reactive] public string Time { get; set; }
+        [ObservableAsProperty] public string Time { get; set; }
     }
 }
