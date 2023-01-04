@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using ContohMenu.ViewModels;
+using ContohMenu.ViewModels.Menu;
 using ContohMenu.Views;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -44,7 +45,7 @@ namespace ContohMenu
             base.OnFrameworkInitializationCompleted();
         }
 
-        public static void ChangeMenu(ViewModelBase vm)
+        public static void ChangeMenu(MenuViewModelBase vm)
         {
             MainVM.CurrentMenu = vm;
         }

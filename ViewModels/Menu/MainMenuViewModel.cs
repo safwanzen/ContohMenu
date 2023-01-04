@@ -10,7 +10,7 @@ using System.Windows.Markup;
 
 namespace ContohMenu.ViewModels.Menu
 {
-    internal class MainMenuViewModel : ViewModelBase
+    internal class MainMenuViewModel : MenuViewModelBase
     {
         public MainMenuViewModel()
         {

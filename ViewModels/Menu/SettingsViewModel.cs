@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContohMenu.ViewModels.Menu
 {
-    internal class SettingsViewModel : ViewModelBase
+    internal class SettingsViewModel : MenuViewModelBase
     {
         public SettingsViewModel()
         {

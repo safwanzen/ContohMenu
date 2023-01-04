@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ContohMenu.ViewModels.Menu
 {
-    internal class TimeViewModel : ViewModelBase, IDisposable
+    internal class TimeViewModel : MenuViewModelBase, IDisposable
     {
         IDisposable disposable;
 
